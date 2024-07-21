@@ -49,8 +49,14 @@ def check_input_value(input_choice):
     elif input_choice == "5":
         clear_screen()
         Terminal_Menu.title_screen("Delete Note")
-        title = input(f"{PLUS_SIGN} Enter title: ")
-        note.delete_note_by_title(title)
+        index = input(f"{PLUS_SIGN} Enter the note's index you want to delete: ")
+
+        try:
+            index = int(index) - 1
+            note.delete_note_by_title(index)
+            print(f"\n{GREEN}{PLUS_SIGN}{RESET} Note deleted successfully.")
+        except ValueError:
+            print(f"\n{RED}{WARNING_SIGN}{RESET} Invalid index")
 
     elif input_choice == "q" or input_choice == "Q":
         Terminal_Menu.keep_using(False)

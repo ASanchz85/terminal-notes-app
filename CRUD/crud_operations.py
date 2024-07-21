@@ -35,5 +35,9 @@ class CRUD_management:
     def search_note_by_content(self, query: str):
         return [item for item in self.data if query in item.note_data["content"]]
 
-    def delete_note_by_title(self, query: str):
-        pass
+    def delete_note_by_title(self, index: int):
+        if index >= 0 and index < len(self.data):
+            del self.data[index]
+            self._save_notes()
+        else:
+            raise ValueError("Invalid index")

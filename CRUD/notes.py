@@ -2,6 +2,10 @@ from datetime import date
 
 
 class Note:
+    """
+    The Note class is used to create a note object that can be used to store the date, title, and content of a note.
+    """
+
     def __init__(self, title: str, content: str, current_date=date.today()):
         self.note_data = {"date": current_date, "title": title, "content": content}
 
