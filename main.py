@@ -1,15 +1,17 @@
-from contants import PLUS_SIGN
-from utils.check_input_value import *
+from helpers.check_input_value import check_input_value
+from menu.menu import Terminal_Menu
+from utils.utils import clear_screen
 
 
 def main():
     clear_screen()
+    menu = Terminal_Menu()
 
     while True:
-        title_screen("Menu")
-        main_menu_options()
+        menu.title_screen("Menu")
+        menu.display_menu()
 
-        choice = input(f"\n{PLUS_SIGN} Enter your choice: ")
+        choice = menu.get_user_choice()
 
         check_input_value(choice)
 

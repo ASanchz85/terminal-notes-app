@@ -3,7 +3,11 @@ from datetime import date
 
 class Note:
     def __init__(self, title: str, content: str, current_date=date.today()):
-        self.note_data = {"title": title, "content": content, "date": current_date}
+        self.note_data = {"date": current_date, "title": title, "content": content}
 
     def __str__(self):
-        return f"{self.note_data['title']}: {self.note_data['content']} - {self.note_data['current_date']}"
+        return (
+            f"\tDate: {self.note_data['date']}\n"
+            f"\tTitle: {self.note_data['title']}\n"
+            f"\tContent: {self.note_data['content']}\n"
+        )

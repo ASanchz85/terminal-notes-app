@@ -3,7 +3,7 @@ import pickle
 from CRUD.notes import Note
 
 
-class Notes_management:
+class CRUD_management:
     """
     The Note class is used to create a note object that can be used to add, read, search, and delete notes. No required file name is needed to create a note object. The default file name is notes.pkl. The file name must end with .pkl. If other extension is provided, the .pkl extension will be added to the file name.
     """
@@ -18,19 +18,22 @@ class Notes_management:
         except FileNotFoundError:
             self.data = []
 
-    def save_notes(self):
+    def _save_notes(self):
         with open(self.file_name, "wb") as file:
             pickle.dump(self.data, file)
 
     def add_note(self, title: str, content: str):
         self.data.append(Note(title, content))
-        self.save_notes()
+        self._save_notes()
 
     def read_all_notes(self):
-        pass
+        return self.data
 
-    def search_note_by_title(self, title: str):
-        pass
+    def search_note_by_title(self, query: str):
+        return [item for item in self.data if query in item.note_data["title"]]
 
-    def delete_note_by_title(self, title: str):
+    def search_note_by_content(self, query: str):
+        return [item for item in self.data if query in item.note_data["content"]]
+
+    def delete_note_by_title(self, query: str):
         pass
