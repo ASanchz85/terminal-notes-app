@@ -5,7 +5,7 @@ from CRUD.notes import Note
 
 class CRUD_management:
     """
-    The Note class is used to create a note object that can be used to add, read, search, and delete notes. No required file name is needed to create a note object. The default file name is notes.pkl. The file name must end with .pkl. If other extension is provided, the .pkl extension will be added to the file name.
+    The CRUD_management class is used to create a note object that can be used to add, read, search, and delete notes. No required file name is needed to create a note object. The default file name is notes.pkl. The file name must end with .pkl. If other extension is provided, the .pkl extension will be added to the file name.
     """
 
     def __init__(self, file_name="notes.pkl"):
