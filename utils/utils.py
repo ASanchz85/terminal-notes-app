@@ -1,6 +1,6 @@
 import os
 
-from contants import *
+from config.constants import *
 
 
 def clear_screen():

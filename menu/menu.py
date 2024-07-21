@@ -1,5 +1,5 @@
 from time import sleep
-from contants import *
+from config.constants import *
 from utils.utils import clear_screen
 
 

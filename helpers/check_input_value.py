@@ -2,7 +2,7 @@ from time import sleep
 
 from CRUD.crud_operations import CRUD_management
 from menu.menu import Terminal_Menu
-from contants import *
+from config.constants import *
 from utils.utils import *
 
 
