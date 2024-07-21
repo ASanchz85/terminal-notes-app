@@ -1,7 +1,7 @@
 import os
 from time import sleep
 
-from CRUD.crud_operations import Notes
+from CRUD.crud_operations import Notes_management
 from contants import *
 
 
@@ -23,16 +23,33 @@ def main_menu_options():
     print("5. Exit")
 
 
+def keep_using(is_using=True):
+    if not is_using:
+        clear_screen()
+        title_screen("Goodbye")
+        sleep(1)
+        clear_screen()
+        exit()
+
+    answer = input(
+        f"\n{GREEN}{PLUS_SIGN}{RESET} Would you like to keep using the program? Press [Y (yes) / N (no)]."
+    )
+    if answer.lower() == "y":
+        clear_screen()
+    else:
+        keep_using(False)
+
+
 def check_input_value(input_choice):
-    note = Notes()
+    note = Notes_management()
 
     if input_choice == "1":
         clear_screen()
         title_screen("Add Note")
         title = input(f"{PLUS_SIGN} Enter title: ")
-        data = input(f"{PLUS_SIGN} Enter note: ")
+        content = input(f"{PLUS_SIGN} Enter note: ")
 
-        note.add_note(title, data)
+        note.add_note(title, content)
 
     elif input_choice == "2":
         clear_screen()
@@ -52,14 +69,10 @@ def check_input_value(input_choice):
         note.delete_note_by_title(title)
 
     elif input_choice == "5":
-        clear_screen()
-        title_screen("Goodbye")
-        sleep(1)
-        clear_screen()
-        exit()
+        keep_using(False)
 
     else:
-        input(
-            f"\n{RED}{WARNING_SIGN}{RESET} Invalid choice. Press any key to try again."
-        )
+        print(f"\n{RED}{WARNING_SIGN}{RESET} Invalid choice")
+        sleep(0.5)
+        input(f"\n{RED}{WARNING_SIGN}{RESET} Press any key to try again.")
         clear_screen()
