@@ -12,6 +12,12 @@ def crud_manager():
     yield manager
     if os.path.exists("test_notes.pkl"):
         os.remove("test_notes.pkl")
+        
+def test_file_creation(crud_manager):
+    """Test if the file is created after adding a note."""
+    crud_manager.add_note("Test Title", "Test Content")
+    assert os.path.exists("test_notes.pkl")
+
 
 
 def test_add_note_and_read_all(crud_manager):
